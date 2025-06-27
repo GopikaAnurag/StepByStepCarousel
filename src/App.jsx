@@ -158,7 +158,15 @@ function App() {
   };
 
   return (
-    <div>
+    <div style={{ paddingBottom: "4rem" }}>
+      <h1 style={{ textAlign: "center", fontSize: "2rem", margin: "2rem 0" }}>
+        Step-by-Step Carousel #1
+      </h1>
+      <StepByStepCarousel steps={steps} carouselSettings={carouselSettings} />
+
+      <h1 style={{ textAlign: "center", fontSize: "2rem", margin: "3rem 0 2rem" }}>
+        Step-by-Step Carousel #2
+      </h1>
       <StepByStepCarousel steps={steps} carouselSettings={carouselSettings} />
     </div>
   );

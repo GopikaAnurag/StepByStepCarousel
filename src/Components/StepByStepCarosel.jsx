@@ -5,7 +5,6 @@ import { FaFileAlt, FaCheckCircle } from "react-icons/fa";
 
 const StepByStepCarousel = ({ steps, carouselSettings }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const [sliderRef] = useKeenSlider({
     breakpoints: {
       "(min-width: 1024px)": {
@@ -30,10 +29,24 @@ const StepByStepCarousel = ({ steps, carouselSettings }) => {
     <div style={{ padding: "2rem" }}>
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <p style={{ textTransform: "uppercase", fontSize: "0.85rem", color: "#2563eb", fontWeight: 600 }}>
+        <p
+          style={{
+            textTransform: "uppercase",
+            fontSize: "0.85rem",
+            color: "#2563eb",
+            fontWeight: 600,
+          }}
+        >
           SAUDI PCC ONLINE PROCESS
         </p>
-        <h2 style={{ fontSize: "1.8rem", fontWeight: "bold", color: "#1e293b", marginTop: "0.25rem" }}>
+        <h2
+          style={{
+            fontSize: "1.8rem",
+            fontWeight: "bold",
+            color: "#1e293b",
+            marginTop: "0.25rem",
+          }}
+        >
           Step-by-Step Process
         </h2>
       </div>
@@ -58,17 +71,17 @@ const StepByStepCarousel = ({ steps, carouselSettings }) => {
               height: `${carouselSettings.slideHeight}px`,
             }}
           >
-            {/* STEP Badge (Top-right corner) */}
+            {/* Top-Right STEP Label */}
             <div
               style={{
                 position: "absolute",
-                top: "0.5rem",
-                right: "0.5rem",
+                top: "0.75rem",
+                right: "0.75rem",
                 display: "flex",
                 alignItems: "center",
-                gap: "0.2rem",
+                gap: "0.4rem",
                 background: "#eef4ff",
-                padding: "0.3rem 0.5rem",
+                padding: "0.4rem 0.7rem",
                 borderRadius: "1rem",
                 fontSize: "0.8rem",
                 fontWeight: 600,
@@ -80,7 +93,7 @@ const StepByStepCarousel = ({ steps, carouselSettings }) => {
               <span>STEP {step.step.toString().padStart(2, "0")}</span>
             </div>
 
-            {/* Left-side Image */}
+            {/* Slide Content */}
             <img
               src={step.image}
               alt={`Step ${step.step}`}
@@ -92,12 +105,24 @@ const StepByStepCarousel = ({ steps, carouselSettings }) => {
               }}
             />
 
-            {/* Right-side Content */}
             <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: "bold", color: step.titleColor, marginBottom: "0.5rem" }}>
+              <h3
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: "bold",
+                  color: step.titleColor,
+                  marginBottom: "0.5rem",
+                }}
+              >
                 {step.title}
               </h3>
-              <p style={{ marginBottom: "0.5rem", fontSize: "0.95rem", color: step.descriptionColor }}>
+              <p
+                style={{
+                  marginBottom: "0.5rem",
+                  fontSize: "0.95rem",
+                  color: step.descriptionColor,
+                }}
+              >
                 {step.description}
               </p>
               <ul style={{ listStyle: "none", paddingLeft: 0 }}>
@@ -122,9 +147,23 @@ const StepByStepCarousel = ({ steps, carouselSettings }) => {
         ))}
       </div>
 
-      {/* Line Progress Bar */}
-      <div style={{ width: "100%", maxWidth: "700px", margin: "1.5rem auto 0" }}>
-        <div style={{ width: "100%", height: "6px", background: "#e2e8f0", borderRadius: "4px", overflow: "hidden" }}>
+      {/* Progress Bar */}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "700px",
+          margin: "1.5rem auto 0",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            height: "6px",
+            background: "#e2e8f0",
+            borderRadius: "4px",
+            overflow: "hidden",
+          }}
+        >
           <div
             style={{
               width: `${progress}%`,
