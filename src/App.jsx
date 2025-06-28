@@ -149,25 +149,40 @@ function App() {
   ];
 
   const carouselSettings = {
-    slideWidth: 380,
-    slideHeight: 420,
-    minimumSlidesToShow: 1.25,
-    scrollSpeed: 500, // ms
-    keyScrollSpeed: 300,
-    dragSpeed: 0.85,
-  };
+  slideWidth: 380,
+  slideHeight: 420,
+  minimumSlidesToShow: 1.25,
+  scrollSpeed: 500,       // milliseconds
+  keyScrollSpeed: 300,    // faster with arrow keys
+  dragSpeed: 0.85    
+};
 
   return (
-    <div style={{ paddingBottom: "4rem" }}>
-      <h1 style={{ textAlign: "center", fontSize: "2rem", margin: "2rem 0" }}>
-        Step-by-Step Carousel #1
-      </h1>
-      <StepByStepCarousel steps={steps} carouselSettings={carouselSettings} />
+    <div
+      style={{
+        height: "100vh", // full viewport height
+        overflow: "hidden", // prevent scrollbars
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* Top Half */}
+      <div style={{ height: "50vh", overflow: "hidden" }}>
+        <StepByStepCarousel
+          steps={steps}
+          carouselSettings={carouselSettings}
+          title="🔷 Top Carousel"
+        />
+      </div>
 
-      <h1 style={{ textAlign: "center", fontSize: "2rem", margin: "3rem 0 2rem" }}>
-        Step-by-Step Carousel #2
-      </h1>
-      <StepByStepCarousel steps={steps} carouselSettings={carouselSettings} />
+      {/* Bottom Half */}
+      <div style={{ height: "50vh", overflow: "hidden" }}>
+        <StepByStepCarousel
+          steps={steps}
+          carouselSettings={carouselSettings}
+          title="🟣 Bottom Carousel"
+        />
+      </div>
     </div>
   );
 }
