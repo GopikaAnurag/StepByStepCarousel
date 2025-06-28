@@ -149,12 +149,12 @@ function App() {
   ];
 
   const carouselSettings = {
-  slideWidth: 380,
-  slideHeight: 420,
-  minimumSlidesToShow: 1.25,
-  scrollSpeed: 500,       // milliseconds
-  keyScrollSpeed: 300,    // faster with arrow keys
-  dragSpeed: 0.85    
+ slideWidth: 920,
+  slideHeight: 400,
+  minimumSlidesToShow: 1.3, // still used in other places
+  scrollSpeed: 400,
+  keyScrollSpeed: 250,
+  dragSpeed: 0.75,   
 };
 
   return (
