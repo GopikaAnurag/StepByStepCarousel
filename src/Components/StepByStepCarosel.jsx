@@ -117,16 +117,16 @@ const StepByStepCarousel = ({ steps, carouselSettings, title}) => {
   // 🔘 Manual scroll buttons
   const scrollLeft = () => {
     carouselRef.current.scrollBy({
-      left: -dimensions.slideWidth,
-      behavior: "smooth",
-    });
+  left: dimensions.slideWidth * carouselSettings.keyScrollSpeed,
+  behavior: "smooth",
+});
   };
 
   const scrollRight = () => {
     carouselRef.current.scrollBy({
-      left: dimensions.slideWidth,
-      behavior: "smooth",
-    });
+  left: dimensions.slideWidth * carouselSettings.keyScrollSpeed,
+  behavior: "smooth",
+});
   };
 
   return (
@@ -181,16 +181,19 @@ const StepByStepCarousel = ({ steps, carouselSettings, title}) => {
 
       {/* Carousel */}
       <div
-        ref={carouselRef}
-        className="no-scrollbar"
-        style={{
-          display: "flex",
-          overflowX: "auto",
-          scrollBehavior: "smooth",
-          paddingBottom: "0.5rem",
-          gap: "1rem",
-          cursor: isDragging ? "grabbing" : "grab",
-        }}
+  ref={carouselRef}
+  className="no-scrollbar"
+  style={{
+    display: "flex",
+    overflowX: "auto",
+    scrollBehavior: "smooth",
+    scrollSnapType: "x mandatory", // ✅ snap horizontally
+    WebkitOverflowScrolling: "touch",
+    gap: "1rem",
+    paddingBottom: "0.5rem",
+    cursor: isDragging ? "grabbing" : "grab",
+  }}
+
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
