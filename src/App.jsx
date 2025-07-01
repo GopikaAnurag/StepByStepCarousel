@@ -120,34 +120,42 @@ function App() {
   ];
 
   const carouselSettings = {
-    slideWidth: 920,
-    slideHeight: 290,
-    minimumSlidesToShow: 1.3,
-    scrollSpeed: 200,
-    keyScrollSpeed: 1, // multiplier of slideWidth
-    dragSpeed: 0.75,
-  };
+  slideWidth: 640, // ↓ reduced from 920
+  slideHeight: 290,
+  minimumSlidesToShow: 1.3,
+  scrollSpeed: 200,
+  keyScrollSpeed: 900,
+  dragSpeed: 0.75,
+};
 
   // Split steps across 2 carousels
-  const numCarousels = 2;
-  const chunkSize = Math.ceil(steps.length / numCarousels);
+  // const numCarousels = 2;
+  // const chunkSize = Math.ceil(steps.length / numCarousels);
 
   return (
     <div
       style={{
+        width: "100%",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
       }}
     >
-      {[...Array(numCarousels)].map((_, i) => (
-        <div key={i} style={{ overflow: "hidden" }}>
-          <StepByStepCarousel
-            steps={steps.slice(i * chunkSize, (i + 1) * chunkSize)}
-            carouselSettings={carouselSettings}
-          />
-        </div>
-      ))}
+      {/* Top Carousel */}
+      <div style={{ flex: 1, overflow: "hidden" }}>
+        <StepByStepCarousel
+          steps={steps}
+          carouselSettings={carouselSettings}
+        />
+      </div>
+
+      {/* Bottom Carousel */}
+      <div style={{ flex: 1, overflow: "hidden" }}>
+        <StepByStepCarousel
+          steps={steps}
+          carouselSettings={carouselSettings}
+        />
+      </div>
     </div>
   );
 }
